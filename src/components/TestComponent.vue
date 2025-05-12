@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { PlusIcon, MinusIcon } from 'lucide-vue-next'
+
 const testStore = useTestStore()
 const { increment, decrement } = testStore
 const { count, name } = storeToRefs(testStore)
@@ -10,26 +14,28 @@ const { count, name } = storeToRefs(testStore)
     <div class="text-center">
       <div>
         <div class="text-lg font-semibold mb-4">Name: {{ name }}</div>
-        <UInput
+        <Input
           v-model="name"
           type="text"
+          class="max-w-xs mx-auto"
         />
       </div>
       <br />
       <div class="text-lg font-semibold mb-4">Count: {{ count }}</div>
       <div class="flex gap-2 justify-center">
-        <UButton
-          icon="ph:minus"
+        <Button
+          variant="outline"
           @click="decrement"
         >
+          <MinusIcon class="h-4 w-4 mr-2" />
           Decrement
-        </UButton>
-        <UButton
-          icon="ph:plus"
+        </Button>
+        <Button
           @click="increment"
         >
+          <PlusIcon class="h-4 w-4 mr-2" />
           Increment
-        </UButton>
+        </Button>
       </div>
     </div>
   </div>

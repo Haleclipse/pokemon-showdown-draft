@@ -6,7 +6,9 @@ import vueDevTools from "vite-plugin-vue-devtools"
 import VueRouter from "unplugin-vue-router/vite"
 import TurboConsole from "unplugin-turbo-console/vite"
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
-import ui from "@nuxt/ui/vite"
+import tailwindcss from "@tailwindcss/vite"
+import AutoImport from "unplugin-auto-import/vite"
+import Components from "unplugin-vue-components/vite"
 import "dotenv/config"
 
 // @ts-expect-error commonjs module
@@ -82,34 +84,34 @@ export default defineConfig({
 
     vue(),
 
-    ui({
-      autoImport: {
-        imports: [
-          "vue",
-          "vue-router",
-          "pinia",
-          "@vueuse/core",
-          { "vue-router/auto": ["definePage"] },
-          { "vue-i18n": ["useI18n", "t"] },
-          {
-            "webextension-polyfill": [["=", "browser"]],
-          },
-        ],
-        dts: "src/types/auto-imports.d.ts",
-        dirs: ["src/composables/**", "src/stores/**", "src/utils/**"],
-        vueTemplate: true,
-        viteOptimizeDeps: true,
-        eslintrc: {
-          enabled: true,
-          filepath: "src/types/.eslintrc-auto-import.json",
+    tailwindcss(),
+
+    AutoImport({
+      imports: [
+        "vue",
+        "vue-router",
+        "pinia",
+        "@vueuse/core",
+        { "vue-router/auto": ["definePage"] },
+        { "vue-i18n": ["useI18n", "t"] },
+        {
+          "webextension-polyfill": [["=", "browser"]],
         },
+      ],
+      dts: "src/types/auto-imports.d.ts",
+      dirs: ["src/composables/**", "src/stores/**", "src/utils/**"],
+      vueTemplate: true,
+      eslintrc: {
+        enabled: true,
+        filepath: "src/types/.eslintrc-auto-import.json",
       },
-      components: {
-        dirs: ["src/components"],
-        dts: "src/types/components.d.ts",
-        directoryAsNamespace: true,
-        globalNamespaces: ["account", "state"],
-      },
+    }),
+
+    Components({
+      dirs: ["src/components"],
+      dts: "src/types/components.d.ts",
+      directoryAsNamespace: true,
+      globalNamespaces: ["account", "state"],
     }),
 
     TurboConsole(),

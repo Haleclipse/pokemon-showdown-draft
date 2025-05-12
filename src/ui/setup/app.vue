@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <UApp>
+  <div class="min-h-screen bg-background text-foreground">
     <AppHeader />
 
     <div class="w-full p-4 prose dark:prose-invert">
@@ -9,7 +9,7 @@
     </div>
 
     <AppFooter />
-  </UApp>
+  </div>
 </template>
 
 <style lang="css"></style>

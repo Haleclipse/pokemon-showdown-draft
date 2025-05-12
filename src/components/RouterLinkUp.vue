@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { Button } from '@/components/ui/button'
+import { ArrowLeftIcon } from 'lucide-vue-next'
+
 const router = useRouter()
 
 defineProps<{
@@ -7,13 +10,14 @@ defineProps<{
 </script>
 
 <template>
-  <UButton
+  <Button
     class="my-4"
-    icon="ph:arrow-left"
+    variant="outline"
     @click="router.back()"
   >
+    <ArrowLeftIcon class="h-4 w-4 mr-2" />
     {{ label || "Go Back" }}
-  </UButton>
+  </Button>
 </template>
 
 <style scoped></style>

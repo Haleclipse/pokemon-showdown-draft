@@ -1,7 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Button } from '@/components/ui/button'
+import { HelpCircle, Settings } from 'lucide-vue-next'
+</script>
 
 <template>
-  <div class="flex justify-between gap-4 p-2 bg-neutral">
+  <div class="flex justify-between gap-4 p-2 bg-muted">
     <RouterLink
       to="/"
       class="flex gap-2 items-center"
@@ -16,16 +19,16 @@
       </div>
     </RouterLink>
     <div class="flex gap-2 justify-center">
-      <UButton
-        to="/common/about"
-        icon="ph:question"
-        variant="ghost"
-      ></UButton>
-      <UButton
-        to="/options-page"
-        icon="ph:gear"
-        variant="ghost"
-      ></UButton>
+      <RouterLink to="/common/about">
+        <Button variant="ghost" size="icon">
+          <HelpCircle class="h-4 w-4" />
+        </Button>
+      </RouterLink>
+      <RouterLink to="/options-page">
+        <Button variant="ghost" size="icon">
+          <Settings class="h-4 w-4" />
+        </Button>
+      </RouterLink>
       <ThemeSwitch />
     </div>
   </div>

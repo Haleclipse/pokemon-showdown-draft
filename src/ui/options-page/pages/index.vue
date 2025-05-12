@@ -1,12 +1,24 @@
 <script setup lang="ts">
+import { Input } from '@/components/ui/input'
+import { Switch } from '@/components/ui/switch'
+import { Label } from '@/components/ui/label'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from '@/components/ui/form'
+
 const optionsStore = useOptionsStore()
-// const { toggleDark } = optionsStore
 const { isDark, profile, others } = storeToRefs(optionsStore)
 </script>
 
 <template>
   <div
-    class="max-w-xl w-full mx-auto rounded-xl md:my-12 p-4 md:p-8 md:border border-base-200 md:shadow-lg bg-base-100"
+    class="max-w-xl w-full mx-auto rounded-xl md:my-12 p-4 md:p-8 md:border border-border md:shadow-lg bg-background"
   >
     <RouterLinkUp />
 
@@ -17,44 +29,56 @@ const { isDark, profile, others } = storeToRefs(optionsStore)
       using Pinia and useBrowserStorage composable.
     </p>
 
-    <h3>User Interface</h3>
+    <h3 class="mt-6 mb-2 text-lg font-semibold">User Interface</h3>
     <p>Change application interface settings.</p>
 
-    <UForm class="space-y-4">
-      <UFormField label="Theme">
-        <USwitch v-model="isDark" />
-      </UFormField>
+    <div class="space-y-6 mt-4">
+      <div class="flex items-center justify-between space-x-2">
+        <Label for="theme" class="flex flex-col space-y-1">
+          <span>Theme</span>
+        </Label>
+        <Switch id="theme" v-model="isDark" />
+      </div>
 
-      <h3>Profile</h3>
-      <p>Change your name and age.</p>
+      <div>
+        <h3 class="mt-6 mb-2 text-lg font-semibold">Profile</h3>
+        <p>Change your name and age.</p>
+      </div>
 
-      <UFormField label="Name">
-        <UInput v-model="profile.name"></UInput>
-      </UFormField>
+      <div class="space-y-4">
+        <div class="space-y-2">
+          <Label for="name">Name</Label>
+          <Input id="name" v-model="profile.name" />
+        </div>
 
-      <UFormField label="Age">
-        <UInput v-model="profile.age"></UInput>
-      </UFormField>
+        <div class="space-y-2">
+          <Label for="age">Age</Label>
+          <Input id="age" v-model="profile.age" />
+        </div>
+      </div>
 
-      <h3>Others</h3>
-      <p>Some other settings related to extension usage.</p>
+      <div>
+        <h3 class="mt-6 mb-2 text-lg font-semibold">Others</h3>
+        <p>Some other settings related to extension usage.</p>
+      </div>
 
-      <UFormField label="Awesome Feature">
-        <USwitch v-model="others.awesome" />
-      </UFormField>
+      <div class="flex items-center justify-between space-x-2">
+        <Label for="awesome" class="flex flex-col space-y-1">
+          <span>Awesome Feature</span>
+        </Label>
+        <Switch id="awesome" v-model="others.awesome" />
+      </div>
 
-      <UFormField label="Counter">
-        <UInput
-          v-model="others.counter"
-          type="number"
-        ></UInput>
-      </UFormField>
+      <div class="space-y-2">
+        <Label for="counter">Counter</Label>
+        <Input id="counter" v-model="others.counter" type="number" />
+      </div>
 
-      <p>
-        * You can also make this a compoenent and then able to use this in any
+      <p class="text-sm text-muted-foreground mt-6">
+        * You can also make this a component and then able to use this in any
         context like Popup, Developer Tools UI etc
       </p>
-      <p>Feel free to change groups or options as per your requirements.</p>
-    </UForm>
+      <p class="text-sm text-muted-foreground">Feel free to change groups or options as per your requirements.</p>
+    </div>
   </div>
 </template>
