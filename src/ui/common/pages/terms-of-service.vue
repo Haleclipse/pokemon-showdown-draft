@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="prose dark:prose-invert max-w-none">
     <RouterLinkUp />
 
     <h1>Terms of Service</h1>
@@ -45,7 +45,7 @@
       If you have any questions about these terms, please contact us at:
       <a
         href="mailto:support@example.com"
-        class="text-primary"
+        class="text-primary hover:underline"
       >
         support@example.com
       </a>

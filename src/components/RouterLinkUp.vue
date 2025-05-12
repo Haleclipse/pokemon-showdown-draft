@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
 import { ArrowLeftIcon } from 'lucide-vue-next'
 
 const router = useRouter()

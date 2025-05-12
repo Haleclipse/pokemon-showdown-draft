@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
 import { HelpCircle, Settings } from 'lucide-vue-next'
 </script>
 
 <template>
-  <div class="flex justify-between gap-4 p-2 bg-muted">
+  <div class="flex justify-between gap-4 p-2 bg-neutral">
     <RouterLink
       to="/"
       class="flex gap-2 items-center"

@@ -108,9 +108,9 @@ export default defineConfig({
     }),
 
     Components({
-      dirs: ["src/components"],
+      dirs: ["src/components", "components/ui"],
       dts: "src/types/components.d.ts",
-      directoryAsNamespace: true,
+      directoryAsNamespace: false,
       globalNamespaces: ["account", "state"],
     }),
 

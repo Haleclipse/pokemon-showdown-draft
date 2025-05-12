@@ -9,13 +9,14 @@ const changelog = __CHANGELOG__
 </script>
 
 <template>
-  <div>
+  <div class="prose dark:prose-invert max-w-none">
     <RouterLinkUp />
 
-    <p>Version: {{ version }}</p>
+    <h1>Change Log</h1>
+    <p class="text-lg font-medium">Version: {{ version }}</p>
     <!-- eslint-disable vue/no-v-html -->
     <div
-      class="prose changelog"
+      class="mt-4 changelog"
       v-html="marked(changelog)"
     />
     <!--eslint-enable-->

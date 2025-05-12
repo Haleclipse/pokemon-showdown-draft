@@ -74,25 +74,25 @@ const features = ref([
 </script>
 
 <template>
-  <div>
+  <div class="prose dark:prose-invert max-w-none">
     <RouterLinkUp />
 
     <h1>Features</h1>
     <p>All available features</p>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <UCard
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-6">
+      <Card
         v-for="{ title, description } in features"
         :key="title"
+        class="h-full"
       >
-        <template #header>
-          <div class="font-semibold text-xl">
-            {{ title }}
-          </div>
-        </template>
-
-        {{ description }}
-      </UCard>
+        <CardHeader>
+          <CardTitle>{{ title }}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>{{ description }}</p>
+        </CardContent>
+      </Card>
     </div>
 
     <div>
@@ -136,10 +136,10 @@ const features = ref([
       </ul>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-8">
       <RouterLink
         to="/common/account/login"
-        class="btn btn-secondary btn-xl w-full md:max-w-96"
+        class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base font-medium w-full md:max-w-96"
       >
         Get Started Now
       </RouterLink>

@@ -1,5 +1,8 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div>
+  <div class="prose dark:prose-invert max-w-none">
     <RouterLinkUp />
 
     <h1>Help & Support</h1>
@@ -8,23 +11,29 @@
       contact our support team at:
       <a
         href="mailto:support@example.com"
-        class="btn-link"
+        class="text-primary hover:underline"
       >
         support@example.com
       </a>
     </p>
 
-    <p class="text-sm font-thin">
+    <p class="text-muted-foreground">
       We strive to respond to all inquiries within 24 hours. Thank you for your
       patience and understanding.
     </p>
 
-    <div class="flex gap-2">
-      <RouterLink to="/common/about">About Us</RouterLink>
+    <div class="flex flex-wrap gap-2 mt-6">
+      <RouterLink to="/common/about">
+        <Button variant="outline" size="sm">About Us</Button>
+      </RouterLink>
 
-      <RouterLink to="/common/privacy-policy">Privacy Policy</RouterLink>
+      <RouterLink to="/common/privacy-policy">
+        <Button variant="outline" size="sm">Privacy Policy</Button>
+      </RouterLink>
 
-      <RouterLink to="/common/terms-of-service">Terms</RouterLink>
+      <RouterLink to="/common/terms-of-service">
+        <Button variant="outline" size="sm">Terms</Button>
+      </RouterLink>
     </div>
   </div>
 </template>

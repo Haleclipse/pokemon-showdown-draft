@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="prose dark:prose-invert max-w-none">
     <RouterLinkUp />
 
     <h1>Privacy Policy</h1>
@@ -42,7 +42,7 @@
       For more information or to exercise these rights, please contact us at:
       <a
         href="mailto:support@example.com"
-        class="text-primary"
+        class="text-primary hover:underline"
       >
         support@example.com
       </a>

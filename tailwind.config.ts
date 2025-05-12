@@ -70,7 +70,5 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")({
-    className: 'prose',
-  })],
+  plugins: [require("@tailwindcss/typography")],
 }

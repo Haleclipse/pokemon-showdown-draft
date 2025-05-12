@@ -5,10 +5,10 @@ const displayName = __DISPLAY_NAME__
 
 <template>
   <div
-    class="w-full h-full flex flex-col justify-center items-center text-center md:my-12"
+    class="w-full h-full flex flex-col justify-center items-center text-center md:my-12 prose dark:prose-invert max-w-none"
   >
     <h1>🎉 Installed! 🚀</h1>
-    <p>
+    <p class="text-xl">
       Thank you for installing {{ displayName }}! ❤️
       <br />
       Now you can close this tab and start using the extension.

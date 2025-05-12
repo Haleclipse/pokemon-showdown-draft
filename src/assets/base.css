@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -60,7 +61,7 @@
 }
 
 .prose {
-  @apply min-w-full;
+  @apply min-w-full prose-sm;
 }
 
 @theme inline {
